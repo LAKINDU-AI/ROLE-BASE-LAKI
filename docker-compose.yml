@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  mongo:
+    image: mongo:4.4  # Specify MongoDB version 4.4
+    ports:
+      - "27017:27017"  # Map container port 27017 to host port 27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin_password
+      MONGO_INITDB_DATABASE: test #dddd
+
+    volumes:
+       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
